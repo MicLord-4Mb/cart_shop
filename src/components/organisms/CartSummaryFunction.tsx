@@ -2,6 +2,7 @@ import type {Product, CartState} from "../../types";
 import {CartListItem} from "../molecules/CartListItem.tsx";
 import {Button} from "../atoms/Button.tsx";
 import "./Cart.css"
+import {useMemo} from "react";
 
 type Props = {
   cart: CartState;
@@ -11,12 +12,16 @@ type Props = {
 
 export const CartSummaryFunction = ({ cart, products, onClear }:Props) => {
   const cartEntries = Object.entries(cart);
-  const totalItems = cartEntries.reduce((sum, [, qty]) => sum + qty, 0);
-
-  const totalPrice = cartEntries.reduce((sum, [id, qty]) => {
-    const product = products.find(p => p.id === Number(id));
-    return sum + (product ? product.price * qty : 0);
-  }, 0);
+  const { totalItems, totalPrice } = useMemo(() => {
+    let items = 0;
+    let price = 0;
+    cartEntries.forEach(([id, qty]) => {
+      items += qty;
+      const product = products.find(p=> p.id === Number(id));
+      if (product) price += product.price * qty;
+    });
+    return { totalItems: items, totalPrice: price };
+  }, [cart, products]);
 
   if (totalItems === 0) return <div className="cart-summary empty">Cart is empty</div>;
 
