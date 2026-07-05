@@ -3,7 +3,7 @@ import {Component} from "react";
 import {CartListItem} from "../molecules/CartListItem.tsx";
 import {Button} from "../atoms/Button.tsx";
 
-interface Props {
+type Props = {
   cart: CartState;
   products: Product[];
   onClear: () => void;

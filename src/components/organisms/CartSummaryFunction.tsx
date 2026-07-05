@@ -2,7 +2,7 @@ import type {Product, CartState} from "../../types";
 import {CartListItem} from "../molecules/CartListItem.tsx";
 import {Button} from "../atoms/Button.tsx";
 
-interface Props {
+type Props = {
   cart: CartState;
   products: Product[];
   onClear: () => void;

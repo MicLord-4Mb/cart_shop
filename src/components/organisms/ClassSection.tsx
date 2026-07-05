@@ -1,14 +1,14 @@
 import { Component } from 'react';
 import type {CartState, Product} from "../../types";
 import {SectionWrapper} from "../templates/SectionWrapper.tsx";
-import ProductCardClass from "../ProductCardClass.tsx";
+import ProductCardClass from "./ProductCardClass.tsx";
 import CartSummaryClass from "./CartSummaryClass.tsx";
 
-interface Props {
+type Props = {
   products: Product[];
 }
 
-interface State {
+type State = {
   cart: CartState;
 }
 
