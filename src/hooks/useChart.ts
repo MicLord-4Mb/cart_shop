@@ -9,19 +9,23 @@ export const useCart = (sectionName: string = 'Cart') => {
     const rawAction = {
       increment(id: number){
         setCart((prev) => ({ ...prev, [id]: (prev[id] ?? 0) +1 }));
-        return `Add item: ${id}`;
+        return `Added item ID: ${id}`;
       },
       decrement(id: number) {
         setCart((prev) => {
           const current = prev[id] ?? 0;
-          if (current <= 0) return prev;
+          if (current <= 1) {
+            const newCart = {...prev};
+            delete newCart[id];
+            return newCart;
+          }
           return {...prev, [id]: current - 1};
         });
-        return `Remove item: ${id}`;
+        return `Decremented item ID: ${id}`;
       },
       clear() {
         setCart({});
-        return 'Cart is cleared';
+        return 'Cart cleared';
       },
     };
 
