@@ -11,13 +11,20 @@ type Props = {
 }
 
 export const CartSummaryFunction = ({ cart, products, onClear }:Props) => {
+  const prodDict = useMemo(() => {
+    return products.reduce((acc, product) => {
+      acc[product.id] = product;
+      return acc;
+    }, {} as Record<number, Product>);
+  }, [products]);
+
   const cartEntries = Object.entries(cart);
   const { totalItems, totalPrice } = useMemo(() => {
     let items = 0;
     let price = 0;
     cartEntries.forEach(([id, qty]) => {
       items += qty;
-      const product = products.find(p=> p.id === Number(id));
+      const product = prodDict[Number(id)];
       if (product) price += product.price * qty;
     });
     return { totalItems: items, totalPrice: price };
@@ -31,9 +38,13 @@ export const CartSummaryFunction = ({ cart, products, onClear }:Props) => {
 
       <ul className="cart-summary__list">
         {cartEntries.map(([id, qty]) => {
-          const product = products.find(p => p.id === Number(id));
+          const product = prodDict[Number(id)];
           if (!product) return null;
-          return <CartListItem key={id} title={product.title} quantity={qty} />;
+          return <CartListItem
+            key={id}
+            title={product.title}
+            quantity={qty}
+          />;
         })}
       </ul>
 
