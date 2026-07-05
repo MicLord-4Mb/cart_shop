@@ -1,4 +1,4 @@
-import {Component} from 'react'
+import {PureComponent} from 'react'
 import type {Product} from "../../types";
 import "./Card.css"
 
@@ -10,7 +10,7 @@ type Props = {
   onDecrement: (id: number) => void;
 }
 
-export default class ProductCardClass extends Component<Props> {
+export default class ProductCardClass extends PureComponent<Props> {
 
   render() {
     const { product, quantity, onIncrement, onDecrement } = this.props;

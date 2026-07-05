@@ -1,5 +1,6 @@
 import type {Product} from "../../types";
 import "./Card.css"
+import {memo} from "react";
 
 type Props = {
   product: Product;
@@ -25,7 +26,7 @@ const ProductCardFunction = ({
         <button onClick={() => onIncrement(product.id)}>+</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductCardFunction
+export default memo(ProductCardFunction);
