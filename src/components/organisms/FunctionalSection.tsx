@@ -1,8 +1,9 @@
-import {useCart} from "../../hooks/useChart.ts";
+import {useCart} from "../../hooks/useCart.ts";
 import type {Product} from "../../types";
 import {SectionWrapper} from "../templates/SectionWrapper.tsx";
 import ProductCardFunction from "./ProductCardFunction.tsx";
 import {CartSummaryFunction} from "./CartSummaryFunction.tsx";
+import "./Sections.css"
 
 type Props = {
   products: Product[];

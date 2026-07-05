@@ -1,24 +1,4 @@
-.section {
-  flex: 1;
-  border: 1px solid #ccc;
-  padding: 20px;
-}
+/** {*/
+/*    outline: 1px solid red;*/
+/*}*/
 
-.product-card {
-  border: 1px solid #eee;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.product-actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.cart-summary {
-  margin-top: 20px;
-  padding-top: 10px;
-  border-top: 2px solid #ccc;
-}

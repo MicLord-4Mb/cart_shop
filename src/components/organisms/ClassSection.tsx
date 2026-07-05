@@ -3,6 +3,7 @@ import type {CartState, Product} from "../../types";
 import {SectionWrapper} from "../templates/SectionWrapper.tsx";
 import ProductCardClass from "./ProductCardClass.tsx";
 import CartSummaryClass from "./CartSummaryClass.tsx";
+import "./Sections.css"
 
 type Props = {
   products: Product[];

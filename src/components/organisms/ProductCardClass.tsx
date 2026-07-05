@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import type {Product} from "../../types";
+import "./Card.css"
 
 
 type Props = {

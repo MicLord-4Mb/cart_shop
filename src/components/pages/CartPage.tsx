@@ -2,6 +2,7 @@ import {MainLayout} from "../templates/MainLayout.tsx";
 import {FunctionalSection} from "../organisms/FunctionalSection.tsx";
 import {ClassSection} from "../organisms/ClassSection.tsx";
 import {products} from "../../data/products.ts";
+import './CartPage.css'
 
 export const ShopPage = () => {
   return (

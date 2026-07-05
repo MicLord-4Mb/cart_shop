@@ -2,6 +2,7 @@ import type {CartState, Product} from "../../types";
 import {Component} from "react";
 import {CartListItem} from "../molecules/CartListItem.tsx";
 import {Button} from "../atoms/Button.tsx";
+import "./Cart.css"
 
 type Props = {
   cart: CartState;
